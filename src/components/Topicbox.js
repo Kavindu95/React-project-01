@@ -1,14 +1,12 @@
 import React from 'react'
 import './Topicbox.css'
 
-export default function Topicbox() {
-  const topic= '#Visit Sri Lanka'
-  const vision= '#Sri Lanka Is A Beautiful Country'
+export default function Topicbox(props) {
+ 
   return (
     <div>
         <div className='Topicbox'>
-            <span className='text'>{topic} {vision}
-            </span>
+            <span className='text'>Most beautiful country {props.country}</span>
         </div>
     </div>
   )

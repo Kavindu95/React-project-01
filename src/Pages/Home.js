@@ -7,7 +7,9 @@ export default function Home() {
   return (
     <div>
         <h1>Homepage</h1>
-        <Topicbox/>
+        <Topicbox country='sri lanka' />
+        <Topicbox country='maledives' />
+        <Topicbox country='austrailia' />
         <Content/> 
         
         
