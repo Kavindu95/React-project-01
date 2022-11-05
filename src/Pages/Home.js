@@ -1,9 +1,17 @@
 import React from 'react'
+import Content from '../components/Content'
+import Topicbox from '../components/Topicbox'
 
-export default function home() {
+
+export default function Home() {
   return (
     <div>
-        <h1>This is website home page</h1>
+        <h1>Homepage</h1>
+        <Topicbox/>
+        <Content/> 
+        
+        
     </div>
+
   )
 }
