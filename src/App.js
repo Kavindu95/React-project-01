@@ -1,16 +1,38 @@
-//import logo from './logo.svg';
-import './App.css';
-import Home from './Pages/Home';
+import React from 'react'
+import Home from './Pages/Home'
+import { BrowserRouter as Router,Route,Switch,Link } from 'react-router-dom'
+import About from './Pages/About'
+import Contacts from './Pages/Contacts'
 
-
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-    <Home/>
-      </div>
-    
-  );
-}
+  <Router>
+    <div>
+      
+      <li>
+    <Link to="/">Home</Link>
+      </li>
+      <li>
+    <Link to="/About">About</Link></li>
+    <li>
+    <Link to="/Contacts">Contacts</Link></li>
 
-export default App;
+    <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+
+          <Route path='/About'>
+            <About/>
+          </Route>
+          <Route path='/Contacts'>
+            <Contacts/>
+          </Route>
+          </Switch>
+
+      
+    
+    </div>
+  </Router>
+  )
+}
