@@ -1,18 +1,22 @@
 import React from 'react'
-import Content from '../components/Content'
-import Topicbox from '../components/Topicbox'
 import About from './About'
 import Contacts from './Contacts'
-// import Content from '../components/Content'
-// import Topicbox from '../components/Topicbox'
+import {Link, Outlet} from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 
-export default function Home() {
-  return (
-    <div>
-        <h1>Homepage</h1>
-  
-    </div>
 
-  )
-}
+
+
+const Home =() =>{
+  return(
+    <>
+    <h1>Welcome to Sama.LK</h1>
+      <Navbar />
+      <section className='section'>
+        <Outlet />
+      </section>
+    </>
+  );
+};
+export default Home;

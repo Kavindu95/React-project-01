@@ -1,38 +1,39 @@
 import React from 'react'
+import { useState} from 'react'
 import Home from './Pages/Home'
-import { BrowserRouter as Router,Route,Switch,Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import About from './Pages/About'
 import Contacts from './Pages/Contacts'
+import SharedLayout from './Pages/Sharedlayout'
+import Error from './Pages/Error'
+import Dashboard  from './Pages/Dashboard'
+import Login from './Pages/Login'
+import ProtectedRoute from './Pages/ProtectedRoute'
 
 export default function App() {
+  const [user, setUser] = useState(null);
   return (
-  <Router>
-    <div>
-      
-      <li>
-    <Link to="/">Home</Link>
-      </li>
-      <li>
-    <Link to="/About">About</Link></li>
-    <li>
-    <Link to="/Contacts">Contacts</Link></li>
+  <BrowserRouter>
+  <Routes>
 
-    <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route exact path="/" element={<SharedLayout/>}>
+         </Route>
+         <Route index element={<Home />} />
+         <Route exact path="About" element={<About/>}>
+         </Route>
+         <Route exact path="Contacts" element={<Contacts/>}>
+         </Route>
+         <Route path='login' element={<Login setUser={setUser} />} />
+         <Route path='dashboard' element={ <ProtectedRoute user={user}>
+      <Dashboard user={user} />
+    </ProtectedRoute>}/>
 
-          <Route path='/About'>
-            <About/>
-          </Route>
-          <Route path='/Contacts'>
-            <Contacts/>
-          </Route>
-          </Switch>
 
-      
-    
-    </div>
-  </Router>
+         <Route exact path="*" element={<Error/>}>
+         </Route>
+    </Routes>
+  </BrowserRouter>
+  
   )
 }
+
